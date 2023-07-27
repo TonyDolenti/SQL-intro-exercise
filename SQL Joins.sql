@@ -21,11 +21,12 @@ inner join categories on categories.DepartmentID = departments.DepartmentID
 where categories.Name = 'Appliances' or categories.Name = 'Games';
 /* joins: find the product name, total # sold, and total price sold,
  for Eagles: Hotel California --You may need to use SUM() */
-select p.Name, Sum(s.Quantity) as 'Total Sold' Sum(s.Quantity * s.PricePerUnit) as 'Total Price'
+
+select p.Name, Sum(s.Quantity) as 'Total Sold', Sum(s.Quantity * s.PricePerUnit) as 'Total Price'
 from products as p
 inner join sales as s on s.ProductID = p.ProductID
-where p.ProductID = 97;
-select * from sales where productID = 97;
+WHERE p.ProductID = 97;
+
 /* joins: find Product name, reviewer name, rating, and comment on the Visio TV. (only return for the lowest rating!) */
 select p.Name, r.Reviewer, r.Rating, r.Comment
 from products as p
